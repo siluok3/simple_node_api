@@ -31,7 +31,7 @@ module.exports = {
                 'VALUES (?,?)',
                 [name, isbn],
                 function(err, result) {
-                    handleSuccessOrErrorMessage(err, result, res);
+                    this.handleSuccessOrErrorMessage(err, result, res);
                 }
             );
         }
@@ -78,7 +78,7 @@ module.exports = {
                 'WHERE id = ?',
                 [name, isbn, id],
                 function(err, result) {
-                    handleSuccessOrErrorMessage(err, result, res);
+                    this.handleSuccessOrErrorMessage(err, result, res);
                 }
             );
         }
@@ -97,7 +97,7 @@ module.exports = {
             'DELETE FROM books WHERE id = ?',
             [req.params.id],
             function(err, result) {
-                handleSuccessOrErrorMessage(err, result, res);
+                this.handleSuccessOrErrorMessage(err, result, res);
             }
         );
     },

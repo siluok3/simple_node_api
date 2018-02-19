@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const bookController = require('../controllers/book-controller');
+const notFoundController = require('../controllers/not-found-controller');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/books', bookController.all);
+router.post('/books', bookController.create);
+router.get('/book/:id', bookController.get);
+router.put('/book/:id', bookController.update);
+router.delete('/book/:id', bookController.destroy);
+
+router.get('*', notFoundController.show);
 
 module.exports = router;
